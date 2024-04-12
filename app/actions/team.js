@@ -22,3 +22,20 @@ export const createTeam = async (data) => {
   });
   return team;
 };
+
+export const updateScoreTeam = async (id, victory) => {
+  const dataToUpdate = {};
+  if (victory) {
+    dataToUpdate.victory = { increment: 1 };
+  } else {
+    dataToUpdate.defeat = { increment: 1 };
+  }
+  dataToUpdate.total_matches = { increment: 1 };
+  const team = await prisma.team.update({
+    data: dataToUpdate,
+    where: {
+      id: id,
+    },
+  });
+  return team;
+};

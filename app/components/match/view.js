@@ -1,21 +1,23 @@
 import { updateMatchMiddleware } from "./middleware";
+import { updateScoreTeamMiddleware } from "../team/middleware";
 import { useState } from "react";
 
 const View = ({ match, index }) => {
   const [matchState, setMatchState] = useState(match);
 
   const finishMatch = async (e) => {
+    const { teams } = matchState;
     const scoreTeam1 = Math.ceil(Math.random(0, 7) * 7);
     const scoreTeam2 = Math.ceil(Math.random(0, 7) * 7);
     const score = scoreTeam1 + " - " + scoreTeam2;
-    const loser =
-      scoreTeam1 > scoreTeam2 ? match.teams[1].name : match.teams[0].name;
-    const winner =
-      scoreTeam1 > scoreTeam2 ? match.teams[0].name : match.teams[1].name;
+    const loser = scoreTeam1 > scoreTeam2 ? teams[1].name : teams[0].name;
+    const winner = scoreTeam1 > scoreTeam2 ? teams[0].name : teams[1].name;
     e.target.classList.add("opacity-30", "pointer-events-none");
     updateMatchMiddleware(match.id, score, loser, winner)
       .then((res) => setMatchState(res))
       .catch((err) => console.log(err));
+    updateScoreTeamMiddleware(teams[0].id, teams[0].name === winner);
+    updateScoreTeamMiddleware(teams[1].id, teams[1].name === winner);
   };
 
   return (
