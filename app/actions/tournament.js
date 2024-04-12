@@ -41,8 +41,3 @@ export const createTournament = async (data) => {
     },
   });
 };
-
-export const viewAllTournaments = async () => {
-  const tournaments = await prisma.tournament.findMany();
-  return tournaments;
-};

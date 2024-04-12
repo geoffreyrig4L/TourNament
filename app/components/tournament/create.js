@@ -17,11 +17,12 @@ const Create = () => {
 
   const onSubmit = (data) => {
     schema.parse(data);
-    createTournamentMiddleware(data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    try {
+      createTournamentMiddleware(data);
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
