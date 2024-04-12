@@ -7,4 +7,8 @@
 Vous pouvez maintenant voir toutes les équipes dans l'onglet équipe en haut à droite.
 C'est à vous de créer des tournois depuis la Home Page
 
-Une fois créé, vous pourrez voir quels matchs composent ces tournois
+Une fois créé, vous pourrez : 
+- voir quels matchs composent ces tournois
+- Lancer les matchs
+- Voir les scores
+- Ces scores impacteront les statistiques des équipes dans l'onglet 'Equipes'
