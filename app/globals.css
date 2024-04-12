@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary-color: #ec368d;
+  --secondary-color: #ffa5a5;
+  --tertiary-color: #ffd6c0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +33,80 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.input {
+  padding: 0.5em;
+  border-radius: 0.25em;
+  background-color: rgb(var(--foreground-rgb), 0.2);
+}
+
+.submitButton {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid #cbd5e0;
+  background: linear-gradient(to bottom, #000, #6a7481);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}
+
+.submitButton:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.submitButton:active {
+  opacity: 1;
+}
+
+main {
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 6rem;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.link {
+  transition: all 400ms;
+}
+
+.link:hover {
+  transform: scale(1.1);
+}
+
+.primary {
+  color: var(--primary-color);
+  text-decoration-color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--secondary-color);
+  text-decoration-color: var(--secondary-color);
+}
+.tertiary {
+  color: var(--tertiary-color);
+  text-decoration-color: var(--tertiary-color);
+}
+
+option {
+  color: black;
 }

@@ -1,7 +1,7 @@
 import Create from "@/app/components/tournament/create";
-import ViewAll from "@/app/components/tournament/viewAll";
+import ViewAll from "../components/tournament/viewAll";
 
-const Home = () => {
+const TournamentsPage = () => {
   return (
     <div className="main flex flex-col space-y-4">
       <Create />
@@ -10,4 +10,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TournamentsPage;
