@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createTournamentMiddleware } from "./middleware";
+import { useRouter } from "next/navigation";
 
 const Create = () => {
   const {
@@ -9,6 +10,8 @@ const Create = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const router = useRouter();
 
   const schema = z.object({
     sport: z.string(),
@@ -19,7 +22,7 @@ const Create = () => {
     schema.parse(data);
     try {
       createTournamentMiddleware(data);
-      window.location.reload();
+      router.push("/");
     } catch (err) {
       console.log(err);
     }
